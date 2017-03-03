@@ -1,0 +1,26 @@
+# Abstract Factory Example
+
+This code is an application example of the Abstract Factory Pattern. It shows a simple maze game with different types of enemies and walls. These different types are created using an Abstract Factory.
+
+## Compilation requisites
+
+In order to compile this code you require:
+- A Linux/*Nix operative system (Win10 bash may do the job)
+- CMake 2.6 or greater
+- A compiler supporting C++11 or greater (GNU GCC is recommended)
+- NCurses library and its development headers
+
+## Compilation instructions
+
+1. Enter project folder
+2. Create a build subfolder (`mkdir bin/`)
+3. Enter build subfolder (`cd bin/`)
+4. Launch CMake (`cmake ../src/`)
+5. If CMake succeeded, run make (`make`)
+6. If build succeeded, run minimaze game (`./minimaze`)
+
+## Copyright and License
+
+(c) 2017 Francisco Gallego 
+
+This code is distributed under GNU-GPL v3 License.
