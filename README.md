@@ -1,6 +1,6 @@
 # Abstract Factory Example
 
-This code is an application example of the Abstract Factory Pattern. It shows a simple maze game with different types of enemies and walls. These different types are created using an Abstract Factory.
+This code is an application example of the _Abstract Factory Pattern_[1]. It shows a simple maze game with different types of enemies and walls. These different types are created using an Abstract Factory.
 
 ## Compilation requisites
 
@@ -24,3 +24,5 @@ In order to compile this code you require:
 (c) 2017 Francisco Gallego 
 
 This code is distributed under GNU-GPL v3 License.
+
+[1]: "[Design patterns: elements of reusable object-oriented software.](https://www.amazon.es/Design-patterns-object-oriented-professional-computing/dp/0201633612)" Addison-Wesley Longman Publishing Co., Inc. Boston, MA, USA ©1995. ISBN:0-201-63361-2 
