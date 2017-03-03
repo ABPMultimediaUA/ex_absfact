@@ -2,6 +2,10 @@
 
 This code is an application example of the _Abstract Factory Pattern_[1]. It shows a simple maze game with different types of enemies and walls. These different types are created using an Abstract Factory.
 
+## Explanation
+
+This example is used during Computer Games lessons at the University of Alicante. You may want to check out the [associated C++ lesson video (in Spanish)](https://youtu.be/FFM9cQ2bwA0).
+
 ## Compilation requisites
 
 In order to compile this code you require:
