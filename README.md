@@ -14,7 +14,7 @@ This example was used during Computer Games lessons of the [Multimedia Degree](h
 
 In order to compile this code you require:
 - A Linux/*Nix operative system (Win10 bash may do the job)
-- CMake 2.6 or greater
+- CMake 3.2 or greater
 - A compiler supporting C++11 or greater (GNU GCC is recommended)
 - NCurses library and its development headers
 
