@@ -8,7 +8,7 @@ This code is an application example of the _Abstract Factory Pattern_[1]. It sho
 
 This example was used during Computer Games lessons of the [Multimedia Degree](https://cvnet.cpd.ua.es/webcvnet/planestudio/planEstudioND.aspx?plan=C205&lengua=E&caca=2016-17) at the [University of Alicante](http://www.ua.es). You may want to check out the [associated C++ lesson video (in Spanish)](https://youtu.be/FFM9cQ2bwA0):
 
-[![Francisco Gallego's Computer Games Lesson at the University of Alicante](https://img.youtube.com/vi/FFM9cQ2bwA0/0.jpg "Watch Francisco Gallego's lesson on Computer Games at the University of Alicante (in Spanish)")](https://youtu.be/FFM9cQ2bwA0) 
+[![Francisco Gallego's Computer Games Lesson at the University of Alicante](https://img.youtube.com/vi/FFM9cQ2bwA0/hqdefault.jpg "Watch Francisco Gallego's lesson on Computer Games at the University of Alicante (in Spanish)")](https://youtu.be/FFM9cQ2bwA0) 
 
 ## Compilation requisites
 
