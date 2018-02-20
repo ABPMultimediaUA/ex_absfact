@@ -24,10 +24,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 #include <cscene.h>
 #include <cenemy.h>
-#include <cenemyLR.h>
-#include <cenemyWander.h>
-#include <cwallNormal.h>
-#include <cwallMortal.h>
+#include <cwall.h>
 #include <cplayer.h>
 #include <string>
 #include <stdexcept>
@@ -117,8 +114,6 @@ CScene::~CScene() {
    m_gameObjects.clear();
 }
 
-#include <StdPijo.h>
-
 void CScene::removeGameObject(CGameObject *g) {
    // Find and remove it from the gameObject vector
    TObjVec::iterator it;
@@ -138,14 +133,8 @@ void CScene::removeGameObject(CGameObject *g) {
    if (g->isPlayer())
       m_thereIsAPlayer = false;
 
-   STDP::sout << "Hi\n";
-   STDP::Refrescar();
-
    // Then delete it
    delete g;
-
-   STDP::sout << "Hi\n";
-   STDP::Refrescar();
 }
 
 void CScene::moveGameObject(CGameObject *g) {
