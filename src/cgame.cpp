@@ -28,7 +28,7 @@
 #include <crendererobj.h>
 #include <crendererman.h>
 #include <cscene.h>
-#include <cmazefactEasy.h>
+#include <cmazefactHard.h>
 #include <chrono>
 #include <thread>
 
@@ -44,7 +44,7 @@ CGame::CGame() {
 
    // Create scene
    m_scene = new CScene();
-   CMazeFactEasy f;
+   CMazeFactHard f;
    m_scene->initialize(f);
 }
 

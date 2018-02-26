@@ -1,7 +1,7 @@
+#include <crendererobj.h>
 #include <crendererstdp.h>
-#include <istream>
-#include <StdPijo.h>
 #include <crendererobjstdp.h>
+#include <istream>
 
 CRendererSTDP::CRendererSTDP() {
    STDP::Inicializar();
@@ -29,7 +29,7 @@ CRendererSTDP::createSprite(const char* filename) const {
    CRendererObjSTDP* robj = new CRendererObjSTDP();
    ifile >> *robj;
 
-   return robj;
+   return new CRendererObj(robj);
 }
 
 CRendererObj* 
@@ -37,7 +37,7 @@ CRendererSTDP::createString(const char* str) const {
    CRendererObjSTDP* robj = new CRendererObjSTDP();
    robj->setAppearance(str);
 
-   return robj;
+   return new CRendererObj(robj);
 }
 
 void

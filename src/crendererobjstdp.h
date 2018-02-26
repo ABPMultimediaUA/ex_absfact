@@ -1,13 +1,13 @@
 #ifndef __CRENDEREROBJSTDP_H__
 #define __CRENDEREROBJSTDP_H__
 
-#include <crendererobj.h>
+#include <crendererobjimpl.h>
 #include <cstdint>
 #include <string>
 #include <fstream>
 #include <StdPijo.h>
 
-class CRendererObjSTDP : public CRendererObj {
+class CRendererObjSTDP : public CRendererObjImpl {
 public:
    CRendererObjSTDP() = default;
    virtual ~CRendererObjSTDP() = default;

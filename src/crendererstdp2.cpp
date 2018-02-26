@@ -1,3 +1,4 @@
+#include <crendererobj.h>
 #include <crendererstdp2.h>
 #include <crendererobjstdp2.h>
 #include <fstream>
@@ -9,7 +10,7 @@ CRendererSTDP2::createSprite(const char* filename) const {
    CRendererObjSTDP2* robj = new CRendererObjSTDP2();
    ifile >> *robj;
 
-   return robj;
+   return new CRendererObj(robj);
 }
 
 CRendererObj*
@@ -17,5 +18,5 @@ CRendererSTDP2::createString(const char* str) const {
    CRendererObjSTDP2* robj = new CRendererObjSTDP2();
    robj->setAppearance(str);
 
-   return robj;
+   return new CRendererObj(robj);
 }

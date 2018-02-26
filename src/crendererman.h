@@ -20,8 +20,8 @@ public:
    void switchRenderer(TVecRenderObjs& robjs) {
       delete m_renderer;
       m_renderer = new TRenderer();
-      for(auto* o : robjs)
-         o = dynamic_cast<TRendererObj*>(o);
+      //for(auto* o : robjs)
+      //   o = dynamic_cast<TRendererObj*>(o);
    }
 private:
    CRendererMan();

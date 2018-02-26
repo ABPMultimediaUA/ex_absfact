@@ -3,12 +3,22 @@
 
 #include <cstdint>
 
+class CRendererObjImpl;
+
 class CRendererObj {
 public:
-   virtual ~CRendererObj() = default;
+   CRendererObj() = delete;
+   CRendererObj(CRendererObjImpl* impl);
+   ~CRendererObj();
 
-   virtual void draw() const = 0;
-   virtual void setPosition(uint8_t x, uint8_t y) = 0;
+   void draw();
+   void setPosition(uint8_t x, uint8_t y);
+
+   void  setImplementation(CRendererObjImpl* impl);
+private:
+   CRendererObjImpl* m_impl = nullptr;  // Implementation
+
+   void  clearImpl();
 };
 
 #endif
