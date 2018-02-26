@@ -12,7 +12,7 @@ public:
    void draw() const override;
    void setPosition(uint8_t x, uint8_t y) override;
 
-   friend istream& operator>>(istream& in, CRendererObjSTDP2& robj);
+   friend std::istream& operator>>(std::istream& in, CRendererObjSTDP2& robj);
 };
 
 #endif

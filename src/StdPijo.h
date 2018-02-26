@@ -28,8 +28,6 @@
 #include <sstream>
 #include <ncurses.h>
 
-using namespace std;
-
 // Definiciones de Colores
 //----------------------------------
 #define STDP_C_NEGRO    COLOR_BLACK

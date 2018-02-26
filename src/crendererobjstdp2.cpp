@@ -25,8 +25,8 @@ CRendererObjSTDP2::setPosition(uint8_t x, uint8_t y) {
    m_x = 2*x; m_y = 2*y;  
 }
 
-istream& 
-operator>>(istream& in, CRendererObjSTDP2& robj) {
+std::istream& 
+operator>>(std::istream& in, CRendererObjSTDP2& robj) {
    std::string app, att, fg, bg;
 
    in >> app >> att >> fg >> bg;

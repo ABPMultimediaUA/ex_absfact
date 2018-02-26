@@ -80,8 +80,8 @@ CRendererObjSTDP::setPosition(uint8_t x, uint8_t y) {
    m_x = x; m_y = y;  
 }
 
-istream& 
-operator>>(istream& in, CRendererObjSTDP& robj) {
+std::istream& 
+operator>>(std::istream& in, CRendererObjSTDP& robj) {
    std::string app, att, fg, bg;
 
    in >> app >> att >> fg >> bg;

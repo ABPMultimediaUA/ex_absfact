@@ -21,7 +21,7 @@ public:
    virtual void draw() const override;
    virtual void setPosition(uint8_t x, uint8_t y) override;
 
-   friend istream& operator>>(istream& in, CRendererObjSTDP& robj);
+   friend std::istream& operator>>(std::istream& in, CRendererObjSTDP& robj);
    friend class CRendererObjSTDP2;
 protected:
    std::string m_appearance   = "O";

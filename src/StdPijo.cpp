@@ -20,6 +20,8 @@
 // Codigo de las StdPijo C++ Beta
 #include "StdPijo.h"
 
+using namespace std;
+
 int STDP::cursorX;
 int STDP::cursorY;
 int STDP::tamX;
