@@ -18,7 +18,7 @@ public:
    void clearScreen() const override;
    void refresh() const override;      
 protected:
-   std::string    m_filepath = "stdp/";
+   std::string    m_filepath = "graphics/stdp/";
 };
 
 #endif
