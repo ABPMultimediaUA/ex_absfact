@@ -5,6 +5,7 @@
 #include <string>
 
 class CRendererObj;
+class CRendererObjImpl;
 namespace sf { class RenderWindow; }
 
 class CRendererSFML : public CRenderer {
@@ -12,9 +13,11 @@ public:
    CRendererSFML();
    virtual ~CRendererSFML();
    
-            void          setFilePath(const char* filepath)  override;
-   virtual  CRendererObj* createSprite(const char* filename) const override;
-   virtual  CRendererObj* createString(const char* str)      const override;
+   void              setFilePath (const char* filepath)  override;
+   CRendererObj*     createSprite(const char* filename)      const override;
+   CRendererObjImpl* createSpriteImpl(const char* filename)  const override;
+   CRendererObj*     createString(const char* str)           const override;
+   CRendererObjImpl* createStringImpl(const char* str)       const override;
    
    void clearScreen() const override;
    void refresh() const override;      

@@ -13,6 +13,8 @@ public:
 
    void draw();
    void setPosition(uint8_t x, uint8_t y);
+   uint8_t getX() const;
+   uint8_t getY() const;
 
    void              setImplementation(CRendererObjImpl* impl);
    CRendererObjImpl* getImplementation();

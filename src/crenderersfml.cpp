@@ -26,19 +26,29 @@ CRendererSFML::refresh() const {
    m_window->display();
 }
 
-CRendererObj* 
-CRendererSFML::createSprite(const char* filename) const {
+CRendererObjImpl* 
+CRendererSFML::createSpriteImpl(const char* filename) const {
    std::string f = m_filepath + filename + m_ext;
 
    CRendererSpriteSFML* s = new CRendererSpriteSFML(filename, m_window, f);
 
-   return new CRendererObj(s);
+   return s;
+}
+
+CRendererObjImpl* 
+CRendererSFML::createStringImpl(const char* str) const {
+   // Placeholder at the moment
+   return createSpriteImpl(str);
+}
+
+CRendererObj* 
+CRendererSFML::createSprite(const char* filename) const {
+   return new CRendererObj( createSpriteImpl(filename) );
 }
 
 CRendererObj* 
 CRendererSFML::createString(const char* str) const {
-   // Placeholder at the moment
-   return createSprite(str);
+   return new CRendererObj( createStringImpl(str) );
 }
 
 void

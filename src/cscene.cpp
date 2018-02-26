@@ -175,8 +175,10 @@ void
 CScene::changeRenderer(bool toSFML) {
    static auto t = CRendererType::STDP2;
    TVecRenderObjs v;
+   
    for (auto& o : m_gameObjects)
       v.push_back(o->getRenderObj());
+   
    if (toSFML) {
       CRendererMan::p().switchToSFML(v);
    } else {

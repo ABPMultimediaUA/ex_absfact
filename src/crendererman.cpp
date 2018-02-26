@@ -30,10 +30,10 @@ void
 CRendererMan::switchToSFML(TVecRenderObjs& robjs) {
    delete m_renderer;
    m_renderer = new CRendererSFML();
-   for(auto*& o : robjs) {
-      CRendererObj* newo = m_renderer->createSprite(o->getImplementation()->getObjFile().c_str());
-      delete o;
-      o = newo;
+   for(auto* o : robjs) {
+      CRendererObjImpl* newimp = m_renderer->createSpriteImpl(o->getImplementation()->getObjFile().c_str());
+      newimp->setPosition(o->getX(), o->getY());
+      o->setImplementation(newimp);
    }
 }
 

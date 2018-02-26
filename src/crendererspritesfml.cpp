@@ -34,3 +34,10 @@ void
 CRendererSpriteSFML::setPosition(uint8_t x, uint8_t y) {
    m_sprite->setPosition(x * kSprWidth, y * kSprHeight);
 }
+
+uint8_t CRendererSpriteSFML::getX() const {
+   return m_sprite->getPosition().x / kSprWidth;
+};
+uint8_t CRendererSpriteSFML::getY() const {
+   return m_sprite->getPosition().y / kSprHeight;
+}

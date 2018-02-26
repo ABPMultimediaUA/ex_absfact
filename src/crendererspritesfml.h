@@ -20,8 +20,11 @@ public:
    CRendererSpriteSFML(std::string objf, sf::RenderWindow* window, const std::string& filename);
    virtual ~CRendererSpriteSFML();
    
-   virtual void draw() const override;
-   virtual void setPosition(uint8_t x, uint8_t y) override;
+   void draw() const override;
+   void setPosition(uint8_t x, uint8_t y) override;
+
+   uint8_t getX() const override;
+   uint8_t getY() const override;   
 protected:
    sf::Texture*      m_texture;  // Sprite's Texture
    sf::Sprite*       m_sprite;   // The Sprite

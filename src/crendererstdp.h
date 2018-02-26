@@ -5,6 +5,7 @@
 #include <string>
 
 class CRendererObj;
+class CRendererObjImpl;
 
 class CRendererSTDP : public CRenderer {
 public:
@@ -12,8 +13,10 @@ public:
    virtual ~CRendererSTDP();
    
             void          setFilePath(const char* filepath)  override;
-   virtual  CRendererObj* createSprite(const char* filename) const override;
-   virtual  CRendererObj* createString(const char* str)      const override;
+   virtual CRendererObj* createSprite(const char* filename)          const override;
+   virtual CRendererObjImpl* createSpriteImpl(const char* filename)  const override;  
+   virtual CRendererObj* createString(const char* str)               const override;
+   virtual CRendererObjImpl* createStringImpl(const char* str)       const override;  
    
    void clearScreen() const override;
    void refresh() const override;      

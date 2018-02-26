@@ -22,22 +22,33 @@ CRendererSTDP::refresh() const {
    STDP::Refrescar();   
 }
 
-CRendererObj* 
-CRendererSTDP::createSprite(const char* filename) const {
+CRendererObjImpl* 
+CRendererSTDP::createSpriteImpl(const char* filename) const {
    std::ifstream ifile(m_filepath + filename);
 
    CRendererObjSTDP* robj = new CRendererObjSTDP(filename);
    ifile >> *robj;
 
-   return new CRendererObj(robj);
+   return robj;
+}
+
+CRendererObjImpl* 
+CRendererSTDP::createStringImpl(const char* str) const {
+   CRendererObjSTDP* robj = new CRendererObjSTDP(str);
+   robj->setAppearance(str);
+
+   return robj;
+}
+
+
+CRendererObj* 
+CRendererSTDP::createSprite(const char* filename) const {
+   return new CRendererObj( createSpriteImpl(filename) );
 }
 
 CRendererObj* 
 CRendererSTDP::createString(const char* str) const {
-   CRendererObjSTDP* robj = new CRendererObjSTDP(str);
-   robj->setAppearance(str);
-
-   return new CRendererObj(robj);
+   return new CRendererObj( createStringImpl(str) );
 }
 
 void

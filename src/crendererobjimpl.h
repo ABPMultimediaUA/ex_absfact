@@ -13,6 +13,9 @@ public:
    virtual void draw() const = 0;
    virtual void setPosition(uint8_t x, uint8_t y) = 0;
 
+   virtual uint8_t getX() const = 0;
+   virtual uint8_t getY() const = 0;
+
    std::string getObjFile() { return m_objfile; }
 protected:
    std::string m_objfile = "";

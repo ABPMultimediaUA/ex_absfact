@@ -22,9 +22,12 @@ public:
    virtual void draw() const override;
    virtual void setPosition(uint8_t x, uint8_t y) override;
 
+   uint8_t getX() const override { return m_x; }
+   uint8_t getY() const override { return m_y; }
+
    friend std::istream& operator>>(std::istream& in, CRendererObjSTDP& robj);
    friend class CRendererObjSTDP2;
-   friend class CRendererSpriteSFML;   
+//   friend class CRendererSpriteSFML;   
 protected:
    std::string m_appearance   = "O";
    uint8_t     m_attrib       = STDP_A_NORMAL;
