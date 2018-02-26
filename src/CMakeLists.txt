@@ -48,7 +48,7 @@ file(GLOB_RECURSE ${PROJECT_NAME}_SRCFILES
 
 # Executable to be produced with required libraries
 add_executable(${PROJECT_NAME} ${${PROJECT_NAME}_SRCFILES})
-target_link_libraries(${PROJECT_NAME} ncurses)
+target_link_libraries(${PROJECT_NAME} ncurses sfml-graphics sfml-window sfml-system)
 
 # Output directories for the binary
 set_target_properties(${PROJECT_NAME} PROPERTIES
