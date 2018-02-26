@@ -6,7 +6,7 @@
 
 class CRenderer;
 class CRendererObjSTDP;
-enum class CRendererType { STDP, STDP2 };
+enum class CRendererType { STDP, STDP2, SFML };
 using TVecRenderObjs = std::vector<CRendererObj*>;
 
 class CRendererMan {
@@ -16,6 +16,7 @@ public:
    static CRendererMan& p();
    CRenderer& renderer();
    void changeToRenderer(CRendererType t, TVecRenderObjs& robjs);
+   void switchToSFML(TVecRenderObjs& robjs);
 
    template<class TRenderer, class TRenderTo>
    void switchRenderer(TVecRenderObjs& robjs) {

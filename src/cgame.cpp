@@ -76,6 +76,7 @@ void CGame::run() {
       draw();
       timeWait();
       if (m_KeyMan->getLastKeyPressed() == 'n') m_scene->changeRenderer();
+      if (m_KeyMan->getLastKeyPressed() == 'y') m_scene->changeRenderer(true);
    } while(    m_KeyMan->getLastKeyPressed() != 'q' 
             && m_scene->thereIsAPlayer() );
 }

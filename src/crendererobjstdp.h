@@ -9,7 +9,8 @@
 
 class CRendererObjSTDP : public CRendererObjImpl {
 public:
-   CRendererObjSTDP() = default;
+   CRendererObjSTDP() = delete;
+   CRendererObjSTDP(std::string objf) : CRendererObjImpl(std::move(objf)) {};
    CRendererObjSTDP(const CRendererObjSTDP& other);
    virtual ~CRendererObjSTDP() = default;
    
@@ -23,6 +24,7 @@ public:
 
    friend std::istream& operator>>(std::istream& in, CRendererObjSTDP& robj);
    friend class CRendererObjSTDP2;
+   friend class CRendererSpriteSFML;   
 protected:
    std::string m_appearance   = "O";
    uint8_t     m_attrib       = STDP_A_NORMAL;

@@ -20,6 +20,7 @@ public:
    void refresh() const override;      
 protected:
    std::string          m_filepath  = "graphics/SFML/";
+   std::string          m_ext       = ".png";
    sf::RenderWindow*    m_window    = nullptr;
 };
 

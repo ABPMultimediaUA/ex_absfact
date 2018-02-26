@@ -1,7 +1,10 @@
 #include <crendererspritesfml.h>
+#include <crendererobjstdp.h>
 #include <SFML/Graphics.hpp>
 
-CRendererSpriteSFML::CRendererSpriteSFML(sf::RenderWindow* window, const std::string& filename) {
+CRendererSpriteSFML::CRendererSpriteSFML(std::string objf, sf::RenderWindow* window, const std::string& filename) 
+ : CRendererObjImpl(std::move(objf))
+{
    // Set the window
    if (!m_window)
       throw std::logic_error("Null SFML Window received (CRendererSpriteSFML).");
@@ -11,7 +14,7 @@ CRendererSpriteSFML::CRendererSpriteSFML(sf::RenderWindow* window, const std::st
    m_texture = new sf::Texture();
    if (!m_texture->loadFromFile(filename.c_str()))
       throw std::logic_error("File not found (" + filename + ").");
-   
+
    // Generate sprite
    m_sprite = new sf::Sprite(*m_texture);
 }

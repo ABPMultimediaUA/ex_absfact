@@ -7,7 +7,7 @@ CRendererObj*
 CRendererSTDP2::createSprite(const char* filename) const {
    std::ifstream ifile(m_filepath + filename);
 
-   CRendererObjSTDP2* robj = new CRendererObjSTDP2();
+   CRendererObjSTDP2* robj = new CRendererObjSTDP2(filename);
    ifile >> *robj;
 
    return new CRendererObj(robj);
@@ -15,7 +15,7 @@ CRendererSTDP2::createSprite(const char* filename) const {
 
 CRendererObj*
 CRendererSTDP2::createString(const char* str) const {
-   CRendererObjSTDP2* robj = new CRendererObjSTDP2();
+   CRendererObjSTDP2* robj = new CRendererObjSTDP2(str);
    robj->setAppearance(str);
 
    return new CRendererObj(robj);

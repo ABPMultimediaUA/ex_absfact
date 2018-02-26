@@ -45,7 +45,7 @@ public:
    void removeGameObject(CGameObject* o);
    void moveGameObject  (CGameObject *g);
 
-   void changeRenderer();
+   void changeRenderer(bool toSFML = false);
 
    bool thereIsAPlayer() const { return m_thereIsAPlayer; }
    bool isPlayer()       const override { return false; }

@@ -20,7 +20,8 @@ const std::unordered_map < std::string, uint8_t > kAttribMap {
 };
 
 CRendererObjSTDP::CRendererObjSTDP(const CRendererObjSTDP& other)
-   :  m_appearance(other.m_appearance)
+   :  CRendererObjImpl(other.m_objfile)
+   ,  m_appearance(other.m_appearance)
    ,  m_attrib(other.m_attrib), m_fgcolor(other.m_fgcolor)
    ,  m_bgcolor(other.m_bgcolor), m_x(other.m_x), m_y(other.m_y)
 {

@@ -2,7 +2,9 @@
 #include <StdPijo.h>
 
 CRendererObjSTDP2::CRendererObjSTDP2(const CRendererObjSTDP& other)
+   : CRendererObjSTDP("")
 {
+   m_objfile    = other.m_objfile;
    m_appearance = other.m_appearance;
    m_attrib     = other.m_attrib;
    m_fgcolor    = other.m_fgcolor;

@@ -9,14 +9,15 @@ namespace sf {
    class Sprite;
    class RenderWindow;
 }
+class CRendererObjSTDP;
 
 class CRendererSpriteSFML : public CRendererObjImpl {
 public:
-   const float kSprWidth  = 16.0;
-   const float kSprHeight = 16.0;
+   const float kSprWidth  = 32.0;
+   const float kSprHeight = 32.0;
 
    CRendererSpriteSFML() = delete;
-   CRendererSpriteSFML(sf::RenderWindow* window, const std::string& filename);
+   CRendererSpriteSFML(std::string objf, sf::RenderWindow* window, const std::string& filename);
    virtual ~CRendererSpriteSFML();
    
    virtual void draw() const override;

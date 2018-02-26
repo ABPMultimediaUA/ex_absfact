@@ -5,7 +5,8 @@
 
 class CRendererObjSTDP2 : public CRendererObjSTDP {
 public:
-   CRendererObjSTDP2() = default;
+   CRendererObjSTDP2() = delete;
+   CRendererObjSTDP2(std::string objf) : CRendererObjSTDP(std::move(objf)) {};
    CRendererObjSTDP2(const CRendererObjSTDP& other);
    virtual ~CRendererObjSTDP2() = default;
 

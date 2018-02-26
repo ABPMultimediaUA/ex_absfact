@@ -1,5 +1,6 @@
 #include <crendererobj.h>
 #include <crenderersfml.h>
+#include <crendererspritesfml.h>
 #include <istream>
 #include <SFML/Graphics.hpp>
 
@@ -27,16 +28,17 @@ CRendererSFML::refresh() const {
 
 CRendererObj* 
 CRendererSFML::createSprite(const char* filename) const {
-   // Create SFML Sprite   
+   std::string f = m_filepath + filename + m_ext;
 
-   return new CRendererObj(nullptr);
+   CRendererSpriteSFML* s = new CRendererSpriteSFML(filename, m_window, f);
+
+   return new CRendererObj(s);
 }
 
 CRendererObj* 
 CRendererSFML::createString(const char* str) const {
-   // Create SFML String
-
-   return new CRendererObj(nullptr);
+   // Placeholder at the moment
+   return createSprite(str);
 }
 
 void
