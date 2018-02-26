@@ -50,5 +50,10 @@ file(GLOB_RECURSE ${PROJECT_NAME}_SRCFILES
 add_executable(${PROJECT_NAME} ${${PROJECT_NAME}_SRCFILES})
 target_link_libraries(${PROJECT_NAME} ncurses)
 
+# Output directories for the binary
+set_target_properties(${PROJECT_NAME} PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY    ${PROJECT_SOURCE_DIR}/..
+)
+
 # Requiered compiler features
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_range_for)

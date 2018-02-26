@@ -50,7 +50,7 @@
       {
             "label": "run"
          ,  "type": "shell"
-         ,  "command": "cd bin/ && ./minimaze"
+         ,  "command": "./minimaze"
          ,  "args": [ "" ]
          ,  "group": {
              "kind": "test",
