@@ -28,7 +28,7 @@
 #include <crendererobj.h>
 #include <crendererman.h>
 #include <cscene.h>
-#include <cmazefactHard.h>
+#include <cmazefactEasy.h>
 #include <chrono>
 #include <thread>
 
@@ -44,7 +44,7 @@ CGame::CGame() {
 
    // Create scene
    m_scene = new CScene();
-   CMazeFactHard f;
+   CMazeFactEasy f;
    m_scene->initialize(f);
 }
 
@@ -58,8 +58,8 @@ void CGame::timeWait() {
    using clk = std::chrono::high_resolution_clock;
    using namespace std::chrono_literals;
 
-   constexpr auto fps = 30.0f;
-   constexpr auto spf   = 1.0s / fps;
+   constexpr auto fps = 20.0f;
+   constexpr auto spf = 1.0s / fps;
    static auto t = clk::now();
 
    auto passed = clk::now() - t;

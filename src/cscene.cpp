@@ -179,7 +179,7 @@ CScene::changeRenderer() {
       v.push_back(o->getRenderObj());
    CRendererMan::p().changeToRenderer(t, v);
    switch(t) {
-      case CRendererType::STDP:  t = CRendererType::STDP2;
-      case CRendererType::STDP2: t = CRendererType::STDP;
+      case CRendererType::STDP:  t = CRendererType::STDP2; break;
+      case CRendererType::STDP2: t = CRendererType::STDP;  break;
    }
 }

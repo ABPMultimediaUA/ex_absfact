@@ -2,9 +2,10 @@
 #define __CRENDERERMANAGER_H__
 
 #include <vector>
+#include <crendererobj.h>
 
 class CRenderer;
-class CRendererObj;
+class CRendererObjSTDP;
 enum class CRendererType { STDP, STDP2 };
 using TVecRenderObjs = std::vector<CRendererObj*>;
 
@@ -16,12 +17,12 @@ public:
    CRenderer& renderer();
    void changeToRenderer(CRendererType t, TVecRenderObjs& robjs);
 
-   template<class TRenderer, class TRendererObj>
+   template<class TRenderer, class TRenderTo>
    void switchRenderer(TVecRenderObjs& robjs) {
-      delete m_renderer;
-      m_renderer = new TRenderer();
-      //for(auto* o : robjs)
-      //   o = dynamic_cast<TRendererObj*>(o);
+        delete m_renderer;
+        m_renderer = new TRenderer();
+        for(auto* o : robjs)
+            o->setImplementation( new TRenderTo( *dynamic_cast<CRendererObjSTDP*>(o->getImplementation()) ) );
    }
 private:
    CRendererMan();

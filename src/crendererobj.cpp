@@ -22,7 +22,13 @@ void
 CRendererObj::setImplementation(CRendererObjImpl* impl) {
     if (!impl)
       throw std::logic_error("Null pointer for setImplementation");
+    clearImpl();
     m_impl = impl;
+}
+
+CRendererObjImpl*
+CRendererObj::getImplementation() {
+    return m_impl;
 }
 
 void

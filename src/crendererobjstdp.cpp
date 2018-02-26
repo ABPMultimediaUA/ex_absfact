@@ -19,6 +19,14 @@ const std::unordered_map < std::string, uint8_t > kAttribMap {
    ,  { "negrita" , STDP_A_NEGRITA  }
 };
 
+CRendererObjSTDP::CRendererObjSTDP(const CRendererObjSTDP& other)
+   :  m_appearance(other.m_appearance)
+   ,  m_attrib(other.m_attrib), m_fgcolor(other.m_fgcolor)
+   ,  m_bgcolor(other.m_bgcolor), m_x(other.m_x), m_y(other.m_y)
+{
+   // Copy constructor
+}
+
 void
 CRendererObjSTDP::setAppearance(const std::string& app) {
    m_appearance = app;

@@ -27,7 +27,7 @@ CRendererMan::renderer() {
 void 
 CRendererMan::changeToRenderer(CRendererType t, TVecRenderObjs& robjs) {
    switch (t) {
-      case CRendererType::STDP:  switchRenderer<CRendererSTDP,  CRendererObjSTDP> (robjs); break;
+      case CRendererType::STDP:  switchRenderer<CRendererSTDP,  CRendererObjSTDP>(robjs); break;
       case CRendererType::STDP2: switchRenderer<CRendererSTDP2, CRendererObjSTDP2>(robjs); break;
    }
 }

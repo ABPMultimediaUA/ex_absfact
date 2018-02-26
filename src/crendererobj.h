@@ -14,7 +14,8 @@ public:
    void draw();
    void setPosition(uint8_t x, uint8_t y);
 
-   void  setImplementation(CRendererObjImpl* impl);
+   void              setImplementation(CRendererObjImpl* impl);
+   CRendererObjImpl* getImplementation();
 private:
    CRendererObjImpl* m_impl = nullptr;  // Implementation
 

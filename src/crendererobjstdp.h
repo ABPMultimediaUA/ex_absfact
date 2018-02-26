@@ -10,8 +10,9 @@
 class CRendererObjSTDP : public CRendererObjImpl {
 public:
    CRendererObjSTDP() = default;
+   CRendererObjSTDP(const CRendererObjSTDP& other);
    virtual ~CRendererObjSTDP() = default;
-
+   
    void setAppearance(const std::string& app);
    void setAttribute(const std::string& att);
    void setFGColor(const std::string& fg);
@@ -21,6 +22,7 @@ public:
    virtual void setPosition(uint8_t x, uint8_t y) override;
 
    friend istream& operator>>(istream& in, CRendererObjSTDP& robj);
+   friend class CRendererObjSTDP2;
 protected:
    std::string m_appearance   = "O";
    uint8_t     m_attrib       = STDP_A_NORMAL;

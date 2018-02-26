@@ -6,6 +6,7 @@
 class CRendererObjSTDP2 : public CRendererObjSTDP {
 public:
    CRendererObjSTDP2() = default;
+   CRendererObjSTDP2(const CRendererObjSTDP& other);
    virtual ~CRendererObjSTDP2() = default;
 
    void draw() const override;
