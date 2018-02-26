@@ -29,8 +29,8 @@ project(minimaze)
 # Set binary output folders
 set(RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 
-# Debug or release
-set(CMAKE_BUILD_TYPE Debug)
+# Debug build
+#set(CMAKE_BUILD_TYPE Debug)
 
 # Set the C++ Standard
 set(CMAKE_CXX_STANDARD 14)
