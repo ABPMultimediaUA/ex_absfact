@@ -23,20 +23,25 @@
 //    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ///////////////////////////////////////////////////////////////////////////////
 #include <cenemyWander.h>
-#include <StdPijo.h>
 #include <cstdlib>
+#include <ctime>
 #include <algorithm>
+#include <crenderer.h>
+#include <crendererman.h>
+#include <crendererobj.h>
 
 CEnemyWander::CEnemyWander() {
+   std::srand(std::time(nullptr));
    initMovementVector();
+   m_sprite = CRendererMan::p().renderer().createSprite("enemy_wander");
 }
 
 void CEnemyWander::initMovementVector() {
    // Initialize directions vector
-   m_dirs[0] = { 1, 0, static_cast<uint8_t>(1 + rand() % 10) };
-   m_dirs[1] = { 0, 1, static_cast<uint8_t>(1 + rand() % 10) };
-   m_dirs[2] = {-1, 0, static_cast<uint8_t>(1 + rand() % 10) };
-   m_dirs[3] = { 0,-1, static_cast<uint8_t>(1 + rand() % 10) };
+   m_dirs[0] = { 1, 0, static_cast<uint8_t>(1 + std::rand() % 10) };
+   m_dirs[1] = { 0, 1, static_cast<uint8_t>(1 + std::rand() % 10) };
+   m_dirs[2] = {-1, 0, static_cast<uint8_t>(1 + std::rand() % 10) };
+   m_dirs[3] = { 0,-1, static_cast<uint8_t>(1 + std::rand() % 10) };
    std::random_shuffle(m_dirs + 0, m_dirs + 4);
 
    // Start from direction 0
@@ -51,12 +56,8 @@ void CEnemyWander::update() {
 }
 
 void CEnemyWander::draw() {
-   STDP::CambiaColor(STDP_A_NEGRITA, STDP_C_MAGENTA, STDP_C_NEGRO);  
-   STDP::PonCursor(m_x, m_y);
-   STDP::sout << "W";
-}
-
-CEnemyWander::~CEnemyWander() {
+   m_sprite->setPosition(m_x, m_y);
+   m_sprite->draw();
 }
 
 void CEnemyWander::moveOneStepInCurrentDirection() {

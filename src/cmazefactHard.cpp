@@ -27,9 +27,6 @@
 #include <cwallMortal.h>
 #include <cplayer.h>
 
-CMazeFactHard::CMazeFactHard() {
-}
-
 CEnemy *CMazeFactHard::createEnemy (uint8_t x, uint8_t y) const{
    CEnemyWander* e = new CEnemyWander();
    e->setLocation(x, y);

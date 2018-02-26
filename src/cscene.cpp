@@ -169,3 +169,17 @@ void CScene::moveGameObject(CGameObject *g) {
    }
 }
 
+#include <crendererman.h>
+
+void 
+CScene::changeRenderer() {
+   static auto t = CRendererType::STDP2;
+   TVecRenderObjs v;
+   for (auto& o : m_gameObjects)
+      v.push_back(o->getRenderObj());
+   CRendererMan::p().changeToRenderer(t, v);
+   switch(t) {
+      case CRendererType::STDP:  t = CRendererType::STDP2;
+      case CRendererType::STDP2: t = CRendererType::STDP;
+   }
+}

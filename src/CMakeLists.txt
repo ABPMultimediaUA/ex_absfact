@@ -29,6 +29,11 @@ project(minimaze)
 # Set binary output folders
 set(RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 
+# Set the C++ Standard
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
 # Add include directories
 include_directories("${PROJECT_SOURCE_DIR}")
 

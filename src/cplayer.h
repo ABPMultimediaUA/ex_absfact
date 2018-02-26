@@ -28,11 +28,12 @@
 #include <cgameobject.h>
 
 class CKeyboardMan;
+class CRendererObj;
 
 class CPlayer : public CGameObject {
 public:
    CPlayer();
-   virtual ~CPlayer();
+   virtual ~CPlayer() = default;
 
    virtual void update() override;
    virtual void draw()   override;
@@ -42,9 +43,11 @@ public:
 
    void move(int8_t dx, int8_t dy);
 private:
-   CKeyboardMan* m_KeyMan;
+   CKeyboardMan* m_KeyMan = nullptr;   // Keyboard Manager reference
+   CRendererObj* m_sprite = nullptr;   // Graphical sprite
 
-   uint8_t move_one_axis_with_limits(uint8_t p, int8_t d, uint8_t min, uint8_t max);
+   uint8_t  move_one_axis_with_limits(uint8_t p, int8_t d, uint8_t min, uint8_t max);
+   void     clearSprite();
 };
 
 #endif

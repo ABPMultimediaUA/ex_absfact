@@ -23,9 +23,12 @@
 //    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ///////////////////////////////////////////////////////////////////////////////
 #include <cenemyLR.h>
-#include <StdPijo.h>
+#include <crenderer.h>
+#include <crendererman.h>
+#include <crendererobj.h>
 
-CEnemyLR::CEnemyLR() : m_dir(1) {
+CEnemyLR::CEnemyLR() {
+   m_sprite = CRendererMan::p().renderer().createSprite("enemy_lr");
 }
 
 void CEnemyLR::update() {
@@ -40,10 +43,6 @@ void CEnemyLR::update() {
 }
 
 void CEnemyLR::draw() {
-   STDP::CambiaColor(STDP_A_NEGRITA, STDP_C_ROJO, STDP_C_NEGRO);  
-   STDP::PonCursor(m_x, m_y);
-   STDP::sout << "E";
-}
-
-CEnemyLR::~CEnemyLR() {
+   m_sprite->setPosition(m_x, m_y);
+   m_sprite->draw();
 }

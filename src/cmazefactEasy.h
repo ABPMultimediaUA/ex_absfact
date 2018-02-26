@@ -29,7 +29,9 @@
 
 class CMazeFactEasy : public CMazeFact {
 public:   
-   CMazeFactEasy();
+   CMazeFactEasy() = default;
+   virtual ~CMazeFactEasy() = default;
+
    virtual CEnemy  *createEnemy (uint8_t x, uint8_t y) const override;
    virtual CWall   *createWall  (uint8_t x, uint8_t y) const override;
    virtual CPlayer *createPlayer(uint8_t x, uint8_t y) const override;

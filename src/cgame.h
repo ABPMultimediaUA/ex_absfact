@@ -30,6 +30,7 @@
 class CGameObject;
 class CKeyboardMan;
 class CScene;
+class CRenderer;
 
 class CGame {
 public:

@@ -27,9 +27,6 @@
 #include <cwallNormal.h>
 #include <cplayer.h>
 
-CMazeFactEasy::CMazeFactEasy() {
-}
-
 CEnemy *CMazeFactEasy::createEnemy (uint8_t x, uint8_t y) const{
    CEnemyLR* e = new CEnemyLR();
    e->setLocation(x, y);

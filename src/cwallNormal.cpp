@@ -23,19 +23,18 @@
 //    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ///////////////////////////////////////////////////////////////////////////////
 #include <cwallNormal.h>
-#include <StdPijo.h>
+#include <crenderer.h>
+#include <crendererman.h>
+#include <crendererobj.h>
 
 CWallNormal::CWallNormal() {
+   m_sprite = CRendererMan::p().renderer().createSprite("wall_normal");
 }
 
 void CWallNormal::update() {
 }
 
 void CWallNormal::draw() {
-   STDP::CambiaColor(STDP_A_NEGRITA, STDP_C_VERDE, STDP_C_NEGRO);  
-   STDP::PonCursor(m_x, m_y);
-   STDP::sout << "#";
-}
-
-CWallNormal::~CWallNormal() {
+   m_sprite->setPosition(m_x, m_y);
+   m_sprite->draw();
 }

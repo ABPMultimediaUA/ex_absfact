@@ -24,14 +24,19 @@
 ///////////////////////////////////////////////////////////////////////////////
 #include <cgame.h>
 #include <ckeyboardman.h>
+#include <crenderer.h>
+#include <crendererobj.h>
+#include <crendererman.h>
 #include <cscene.h>
-#include <StdPijo.h>
-#include <unistd.h>
 #include <cmazefactEasy.h>
+#include <chrono>
+#include <thread>
+
+// Simplify calls to renderer using a lambda expression
+const auto& RENDERER = []()->CRenderer& { CRendererMan::p().renderer(); };
 
 CGame::CGame() {
-   STDP::Inicializar();
-   STDP::BorraPantalla();
+   CRendererMan::p();   // Initialize renderer
 
    // Get KeyboardManager Reference and clear Buffer
    m_KeyMan = &CKeyboardMan::p();
@@ -50,14 +55,18 @@ void CGame::update() {
 }
 
 void CGame::timeWait() {
-   static long   t = clock();
-   const float fps = 30.0f;
+   using clk = std::chrono::high_resolution_clock;
+   using namespace std::chrono_literals;
 
-   long toWait = t + CLOCKS_PER_SEC / fps - clock();
-   if (toWait > 0)
-      usleep(toWait);
+   constexpr auto fps = 30.0f;
+   constexpr auto spf   = 1.0s / fps;
+   static auto t = clk::now();
 
-   t = clock();
+   auto passed = clk::now() - t;
+   if (passed < spf)
+      std::this_thread::sleep_for(spf - passed);
+
+   t = clk::now();
 }
 
 void CGame::run() {
@@ -66,28 +75,29 @@ void CGame::run() {
       update();
       draw();
       timeWait();
+      if (m_KeyMan->getLastKeyPressed() == 'n') m_scene->changeRenderer();
    } while(    m_KeyMan->getLastKeyPressed() != 'q' 
             && m_scene->thereIsAPlayer() );
 }
 
 void CGame::draw() {
    // Redraw the screen
-   STDP::BorraPantalla(); 
+   RENDERER().clearScreen();
    m_scene->draw();
-   STDP::Refrescar();
+   RENDERER().refresh();
 }
 
 CGame::~CGame() {
    // End the game
-   STDP::CambiaColor(STDP_A_NEGRITA, STDP_C_BLANCO, STDP_C_ROJO);
-   STDP::PonCursor(2, 6);
-   STDP::sout << "GAME  OVER";
+   CRendererObj* str = RENDERER().createString("GAME OVER");
+   str->setPosition(2, 6);
+   str->draw();
    
    // Remove the scene
    delete m_scene;
+   delete str;
    
    // Clear screen
-   STDP::Refrescar();
-   sleep(2);
-   STDP::Terminar();
+   RENDERER().refresh();
+   std::this_thread::sleep_for(std::chrono::seconds(2));
 }

@@ -29,6 +29,8 @@
 
 class CWall : public CGameObject {
 public:
+   virtual ~CWall() = default;
+
    virtual void update()   = 0;
    virtual void draw()     = 0;
 

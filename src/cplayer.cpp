@@ -23,11 +23,14 @@
 //    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ///////////////////////////////////////////////////////////////////////////////
 #include <cplayer.h>
-#include <StdPijo.h>
+#include <crenderer.h>
+#include <crendererman.h>
+#include <crendererobj.h>
 #include <ckeyboardman.h>
 
 CPlayer::CPlayer() {
    m_KeyMan = &CKeyboardMan::p();
+   m_sprite = CRendererMan::p().renderer().createSprite("player");
 }
 
 void CPlayer::update() {
@@ -42,10 +45,6 @@ void CPlayer::update() {
 }
 
 void CPlayer::draw() {
-   STDP::CambiaColor(STDP_A_NEGRITA, STDP_C_AMARILLO, STDP_C_NEGRO);  
-   STDP::PonCursor(m_x, m_y);
-   STDP::sout << "P";
-}
-
-CPlayer::~CPlayer() {
+   m_sprite->setPosition(m_x, m_y);
+   m_sprite->draw();
 }

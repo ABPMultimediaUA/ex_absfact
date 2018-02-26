@@ -35,7 +35,7 @@ public:
    typedef std::vector<CGameObject*> TObjVec;
 
    CScene();
-   ~CScene();
+   virtual ~CScene();
 
    virtual void  draw()    override;
    virtual void  update()  override;
@@ -44,6 +44,8 @@ public:
    void addGameObject   (CGameObject* o, uint8_t x, uint8_t y);
    void removeGameObject(CGameObject* o);
    void moveGameObject  (CGameObject *g);
+
+   void changeRenderer();
 
    bool thereIsAPlayer() const { return m_thereIsAPlayer; }
    bool isPlayer()       const override { return false; }

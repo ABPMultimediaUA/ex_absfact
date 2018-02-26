@@ -23,19 +23,19 @@
 //    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ///////////////////////////////////////////////////////////////////////////////
 #include <cwallMortal.h>
-#include <StdPijo.h>
+#include <crenderer.h>
+#include <crendererman.h>
+#include <crendererobj.h>
 
 CWallMortal::CWallMortal() {
+   m_sprite = CRendererMan::p().renderer().createSprite("wall_mortal");
 }
 
 void CWallMortal::update() {
 }
 
 void CWallMortal::draw() {
-   STDP::CambiaColor(STDP_A_NEGRITA, STDP_C_ROJO, STDP_C_NEGRO);  
-   STDP::PonCursor(m_x, m_y);
-   STDP::sout << "*";
+   m_sprite->setPosition(m_x, m_y);
+   m_sprite->draw();
 }
 
-CWallMortal::~CWallMortal() {
-}

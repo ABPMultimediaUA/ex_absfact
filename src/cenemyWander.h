@@ -27,6 +27,8 @@
 
 #include <cenemy.h>
 
+class CRendererObj;
+
 class CEnemyWander : public CEnemy {
 public:
    struct TMoveDir {
@@ -35,16 +37,16 @@ public:
    };
 
    CEnemyWander();
-   virtual ~CEnemyWander();
+   virtual ~CEnemyWander() = default;
    virtual void update() override;
    virtual void draw()   override;
 
    virtual bool isPlayer() const override { return false; };
    virtual bool isMortal() const override { return true;  };
 private:
-   uint8_t   m_di;        // Direction index
-   uint8_t   m_step;      // Step number
-   TMoveDir  m_dirs[4];   // Direction vector
+   uint8_t        m_di      = 0;       // Direction index
+   uint8_t        m_step    = 0;       // Step number
+   TMoveDir       m_dirs[4];           // Direction vector
 
    void     initMovementVector();
    void     moveOneStepInCurrentDirection();

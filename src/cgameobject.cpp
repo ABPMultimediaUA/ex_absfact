@@ -23,6 +23,11 @@
 //    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ///////////////////////////////////////////////////////////////////////////////
 #include <cgameobject.h>
+#include <crendererobj.h>
+
+CGameObject::~CGameObject() {
+   clearRenderObj();
+}
 
 void
 CGameObject::setLocation(uint8_t x, uint8_t y) {
@@ -37,3 +42,17 @@ CGameObject::setNextMovement(int8_t dx, int8_t dy) {
    m_ny = m_y + dy;
    m_wantToMove = true;
 }
+
+void
+CGameObject::setRenderObj(CRendererObj* robj) {
+   m_sprite = robj;
+}
+
+void  
+CGameObject::clearRenderObj() {
+   if (m_sprite) {
+      delete m_sprite;
+      m_sprite = nullptr;
+   }
+}
+

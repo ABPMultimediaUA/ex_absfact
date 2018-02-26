@@ -1,0 +1,61 @@
+{
+   // See https://go.microsoft.com/fwlink/?LinkId=733558
+   // for the documentation about the tasks.json format
+   "version": "2.0.0",
+   "tasks": [
+      {
+         "label": "Build App",
+         "type": "shell",
+         "command": "cd bin/ && make",
+         "args": [
+             "-j8"
+         ],
+         "group": {
+             "kind": "build",
+             "isDefault": true
+         },
+         "problemMatcher": {
+            "owner": "cpp",
+            "fileLocation": "absolute",
+            "pattern": {
+                "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                "file": 1,
+                "line": 2,
+                "column": 3,
+                "severity": 4,
+                "message": 5
+            }
+         }
+      } 
+      ,
+      {
+         "label": "CMake",
+         "type": "shell",
+         "command": "cd bin/ && cmake",
+         "args": [
+             "../bin/"
+         ],
+         "group": "build"
+      }
+      ,
+      {
+         "label": "Clean",
+         "type": "shell",
+         "command": "cd bin/ && make",
+         "args": [
+             "clean"
+         ],
+         "group": "build"
+      },
+      {
+            "label": "run"
+         ,  "type": "shell"
+         ,  "command": "cd bin/ && ./minimaze"
+         ,  "args": [ "" ]
+         ,  "group": {
+             "kind": "test",
+             "isDefault": true
+         }
+      }
+    ]
+}

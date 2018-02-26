@@ -27,17 +27,19 @@
 
 #include <cenemy.h>
 
+class CRendererObj;
+
 class CEnemyLR : public CEnemy {
 public:
    CEnemyLR();
-   virtual ~CEnemyLR();
+   virtual ~CEnemyLR() = default;
    virtual void update() override;
    virtual void draw()   override;
 
    virtual bool isPlayer() const override { return false; };
    virtual bool isMortal() const override { return true;  };
 private:
-   int8_t   m_dir;   // Movement Direction
+   int8_t         m_dir = 1;           // Movement Direction
 };
 
 #endif
