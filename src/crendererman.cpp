@@ -27,21 +27,10 @@ CRendererMan::renderer() {
 }
 
 void 
-CRendererMan::switchToSFML(TVecRenderObjs& robjs) {
-   delete m_renderer;
-   m_renderer = new CRendererSFML();
-   for(auto* o : robjs) {
-      CRendererObjImpl* newimp = m_renderer->createSpriteImpl(o->getImplementation()->getObjFile().c_str());
-      newimp->setPosition(o->getX(), o->getY());
-      o->setImplementation(newimp);
-   }
-}
-
-void 
 CRendererMan::changeToRenderer(CRendererType t, TVecRenderObjs& robjs) {
    switch (t) {
-      case CRendererType::STDP:  switchRenderer<CRendererSTDP,  CRendererObjSTDP>(robjs); break;
-      case CRendererType::STDP2: switchRenderer<CRendererSTDP2, CRendererObjSTDP2>(robjs); break;
-      case CRendererType::SFML:  switchToSFML(robjs); break;
+      case CRendererType::STDP:  switchRenderer<CRendererSTDP>(robjs); break;
+      case CRendererType::STDP2: switchRenderer<CRendererSTDP2>(robjs); break;
+      case CRendererType::SFML:  switchRenderer<CRendererSFML>(robjs); break;
    }
 }

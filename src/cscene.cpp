@@ -172,20 +172,12 @@ void CScene::moveGameObject(CGameObject *g) {
 #include <crendererman.h>
 
 void 
-CScene::changeRenderer(bool toSFML) {
-   static auto t = CRendererType::STDP2;
+CScene::changeRenderer(CRendererType t) {
    TVecRenderObjs v;
-   
+
+   // Collect all CRenderObjs   
    for (auto& o : m_gameObjects)
       v.push_back(o->getRenderObj());
    
-   if (toSFML) {
-      CRendererMan::p().switchToSFML(v);
-   } else {
-      CRendererMan::p().changeToRenderer(t, v);
-      switch(t) {
-         case CRendererType::STDP:  t = CRendererType::STDP2; break;
-         case CRendererType::STDP2: t = CRendererType::STDP;  break;
-      }
-   }
+   CRendererMan::p().changeToRenderer(t, v);
 }

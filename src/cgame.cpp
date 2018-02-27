@@ -28,7 +28,7 @@
 #include <crendererobj.h>
 #include <crendererman.h>
 #include <cscene.h>
-#include <cmazefactEasy.h>
+#include <cmazefactHard.h>
 #include <chrono>
 #include <thread>
 
@@ -44,7 +44,7 @@ CGame::CGame() {
 
    // Create scene
    m_scene = new CScene();
-   CMazeFactEasy f;
+   CMazeFactHard f;
    m_scene->initialize(f);
 }
 
@@ -70,15 +70,20 @@ void CGame::timeWait() {
 }
 
 void CGame::run() {
+   char key;
    // Run the game until Q is pressed
    do {
       update();
       draw();
       timeWait();
-      if (m_KeyMan->getLastKeyPressed() == 'n') m_scene->changeRenderer();
-      if (m_KeyMan->getLastKeyPressed() == 'y') m_scene->changeRenderer(true);
-   } while(    m_KeyMan->getLastKeyPressed() != 'q' 
-            && m_scene->thereIsAPlayer() );
+      key = m_KeyMan->getLastKeyPressed();
+      switch(key) { 
+         case 'q': return;
+         case '1': m_scene->changeRenderer(CRendererType::STDP);  break; 
+         case '2': m_scene->changeRenderer(CRendererType::STDP2); break;
+         case '3': m_scene->changeRenderer(CRendererType::SFML);  break;
+      } 
+   } while( m_scene->thereIsAPlayer() );
 }
 
 void CGame::draw() {

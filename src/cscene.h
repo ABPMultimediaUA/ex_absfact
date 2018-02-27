@@ -28,6 +28,7 @@
 #include <vector>
 #include <cgameobject.h>
 
+enum class CRendererType;
 class CMazeFact;
 
 class CScene : public CGameObject {
@@ -45,7 +46,7 @@ public:
    void removeGameObject(CGameObject* o);
    void moveGameObject  (CGameObject *g);
 
-   void changeRenderer(bool toSFML = false);
+   void changeRenderer(CRendererType t);
 
    bool thereIsAPlayer() const { return m_thereIsAPlayer; }
    bool isPlayer()       const override { return false; }

@@ -2,10 +2,10 @@
 #define __CRENDERERMANAGER_H__
 
 #include <vector>
+#include <crenderer.h>
 #include <crendererobj.h>
+#include <crendererobjstdp.h>
 
-class CRenderer;
-class CRendererObjSTDP;
 enum class CRendererType { STDP, STDP2, SFML };
 using TVecRenderObjs = std::vector<CRendererObj*>;
 
@@ -18,13 +18,19 @@ public:
    void changeToRenderer(CRendererType t, TVecRenderObjs& robjs);
    void switchToSFML(TVecRenderObjs& robjs);
 
-   template<class TRenderer, class TRenderTo>
+   template<class TRenderTo>
    void switchRenderer(TVecRenderObjs& robjs) {
-        delete m_renderer;
-        m_renderer = new TRenderer();
-        for(auto* o : robjs)
-            o->setImplementation( new TRenderTo( *dynamic_cast<CRendererObjSTDP*>(o->getImplementation()) ) );
+      delete m_renderer;
+      m_renderer = new TRenderTo();
+      for(auto* o : robjs) {
+         const char* file;
+         CRendererObjImpl* newimp; 
+         file = o->getImplementation()->getObjFile().c_str();
+         newimp = m_renderer->createSpriteImpl(file);
+         o->setImplementation(newimp);
+      }
    }
+
 private:
    CRendererMan();
 
