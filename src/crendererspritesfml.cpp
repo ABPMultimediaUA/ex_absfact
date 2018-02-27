@@ -6,7 +6,7 @@ CRendererSpriteSFML::CRendererSpriteSFML(std::string objf, sf::RenderWindow* win
  : CRendererObjImpl(std::move(objf))
 {
    // Set the window
-   if (!m_window)
+   if (!window)
       throw std::logic_error("Null SFML Window received (CRendererSpriteSFML).");
    m_window = window;
 
